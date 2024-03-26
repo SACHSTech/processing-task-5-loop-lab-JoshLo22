@@ -26,7 +26,7 @@ public class Sketch extends PApplet {
   public void draw() {
     draw_section_outlines();
     draw_section1();
-    
+    draw_section2();
   }
 
   /**
@@ -67,6 +67,29 @@ public class Sketch extends PApplet {
       }
     }
   }
-}
 
+  /**
+   * Use the modulus operator and an if statement to select the color
+   * Don't loop from 30 to 60 to shift everything over, just add 300 to x.
+   */
+  public void draw_section2() {
+    int intX = 0;
+    int intY = 0;
+
+    for (int intRow = 0; intRow < 30; intRow++) {
+      for (int intColumn = 0; intColumn < 30; intColumn++) {
+        intX = 3 + intRow * 10 + 300; // Instead of zero, calculate the proper intX location using 'intRow'
+        intY = 300 + 3 + intColumn * 10; // Instead of zero, calculate the proper intY location using 'intColumn'
+        if (intRow % 2 == 1) {
+          fill(0);
+        } else {
+          fill(255);
+        }
+
+        noStroke();
+        rect(intX, intY, 5, 5);
+      }
+    }
+  }
+}
   
